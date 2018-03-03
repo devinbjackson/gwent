@@ -27,7 +27,7 @@ app.use(cors());
 //   res.sendFile(path.join(__dirname, '/../build/index.html'));
 // })
 
-app.get("/api/cards", controller.getCards())
+app.get("/api/cards", controller.getAllCards)
 
 
 app.listen(port, () => {

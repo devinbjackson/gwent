@@ -1,26 +1,29 @@
 import React, { Component } from 'react';
 import axios from "axios";
+import { connect } from 'react-redux';
+
 
 class Card extends Component {
 
  constructor(props){
      super(props)
     this.state={
-        face: []
     }
 
  } 
- componentDidMount(){
-     axios.get("/api/cards").then((res)=>this.setState({face: res.data}))
- }
+
 
   render() {
+      console.log(this.props)
     return (
       <div className="Card">
-           {this.state.face}hi
+         {/* <img src={`${this.props.card.face}`} /> */}
       </div>
     );
   }
 }
 
-export default Card;
+const mapStateToProps = state => state;
+
+
+export default connect(mapStateToProps)(Card);
