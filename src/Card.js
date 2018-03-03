@@ -1,11 +1,23 @@
 import React, { Component } from 'react';
-import './App.css';
+import axios from "axios";
 
 class Card extends Component {
+
+ constructor(props){
+     super(props)
+    this.state={
+        face: []
+    }
+
+ } 
+ componentDidMount(){
+     axios.get("/api/cards").then((res)=>this.setState({face: res.data}))
+ }
+
   render() {
     return (
       <div className="Card">
-            I'm a card!
+           {this.state.face}hi
       </div>
     );
   }
