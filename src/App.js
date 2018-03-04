@@ -37,7 +37,7 @@ shuffle(){
      </div>
         )
      })
-    const player_deck = this.state.ai_deck.map(function(index){
+    const player_deck = this.state.player_deck.map(function(index){
       return (
       <div>
         <Card card={cardList[index]} key={index}/>
@@ -47,17 +47,29 @@ shuffle(){
 
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">GWENT</h1>
-        </header>
+        <section className="left">
+          </section>
+          <section className="middle">          
         <div className="top-board">
-        AI
-        {ai_deck}
+        <div className="row enemy-siege">
+        </div>
+        <div className="row enemy-ranged">
+        </div>
+        <div className="row enemy-melee">
+        </div>
         </div>
         <div className="bottom-board">
-        PLAYER
-        {player_deck}
+        <div className="row player-siege">
         </div>
+        <div className="row player-ranged">
+        </div>
+        <div className="row player-melee">
+        </div>
+        
+        </div>
+        </section>
+        <section className="right">
+          </section>
       </div>
     );
   }

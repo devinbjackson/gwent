@@ -1,6 +1,73 @@
 .App {
   text-align: center;
+  background-image: url("./witcher3_gwent_playboard.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 1200px;
+  height: 900px;
+  display: flex;
+  align-content: flex-start;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
+
+.left{
+  height: 900px;
+  width: 218px;
+  position: relative;
+}
+
+.middle{
+  height: 900px;
+  width: 830px;
+  position: relative;
+}
+
+.right{
+  height: 900px;
+  width: 156px;
+  position: relative;
+}
+
+.row{
+  margin-left: 90px;
+  height: 130px;
+  width: 630px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.row-select:hover{
+  border-style: solid;
+  border-color: rgb(214, 197, 181);
+}
+
+.enemy-siege{
+  margin-top: 80px;
+}
+
+.enemy-ranged{
+  margin-top: 225px;
+}
+
+.enemy-melee{
+  margin-top: 373px;
+}
+
+.player-siege{
+  margin-top: 524px;
+}
+
+.player-ranged{
+  margin-top: 670px;
+}
+
+.player-melee{
+  margin-top: 818px;
+} 
 
 .top-board{
   display: flex;
