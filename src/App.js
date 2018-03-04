@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Card from "./Card.js";
 import { connect } from 'react-redux';
-import { getAllCards } from "./ducks/reducer";
+import { getAllCards, toggleChoosing, togglePlacing, toggleTargeting, addPlayerMelee, addPlayerRanged, addPlayerSiege } from "./ducks/reducer";
 
 import './App.css';
 
@@ -29,7 +29,16 @@ class App extends Component {
   };
 
   render() {
-    const cardList = this.props.cardList
+    const { cardList,
+      isChoosing,
+      isPlacing,
+      isTargeting,
+      toggleChoosing,
+      toggleTargeting,
+      togglePlacing,
+      addPlayerMelee,
+      addPlayerRanged,
+      addPlayerSiege } = this.props
     const ai_deck = this.state.ai_deck.map(function (index) {
       return (
         <div>
@@ -59,18 +68,22 @@ class App extends Component {
             </div>
           </div>
           <div className="bottom-board">
-            <div className="row player-siege">
+            <div onClick={isPlacing && addPlayerMelee} className={`row ${isPlacing && "row-select"} player-melee`}>
             </div>
-            <div className="row player-ranged">
+            <div onClick={isPlacing && addPlayerRanged} className={`row ${isPlacing && "row-select"} player-ranged`}>
             </div>
-            <div className="row player-melee">
+            <div onClick={isPlacing && addPlayerSiege} className={`row ${isPlacing && "row-select"} player-siege`}>
             </div>
           </div>
         </section>
         <section className="right">
           <div className="ai-grave" />
           <div className="ai-stack" />
-          <div className="player-stack" />
+          <div className="player-stack" onClick={toggleChoosing} >
+            <div className={`${isChoosing && "choosing"} hand`}>
+              {player_deck}
+            </div>
+          </div>
           <div className="player-grave" />
         </section>
       </div>
@@ -80,4 +93,12 @@ class App extends Component {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps, { getAllCards })(App);
+export default connect(mapStateToProps, {
+  getAllCards,
+  toggleChoosing,
+  togglePlacing,
+  toggleTargeting,
+  addPlayerMelee,
+  addPlayerRanged,
+  addPlayerSiege
+})(App);

@@ -48,6 +48,7 @@
 
 .row-select:hover{
   outline:2px solid rgb(214, 197, 181);
+  cursor: pointer;
 }
 
 .enemy-siege{
@@ -116,4 +117,19 @@
 .player-grave{
   height:130px;
   width: 90px;
+}
+
+.choosing{
+  display: flex !important;
+
+}
+
+.hand{
+  border-radius: 5px;
+  height: 160px;
+  display: none;
+  padding: 10px;
+  margin-left: -900px;
+  background-color: rgba(129, 129, 129, 0.418);
+  position: absolute;
 }

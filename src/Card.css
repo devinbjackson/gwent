@@ -1,4 +1,16 @@
+.Card:hover{
+    z-index: 2;
+}
+
+
 .card-image{
     width: 114px;
     margin: -11px;
+    z-index: 1;
+}
+
+.card-image:hover{
+    width: 150px;
+    margin: -25px;
+    margin-top: -30px;
 }
