@@ -5,23 +5,23 @@ import './Card.css';
 
 class Card extends Component {
 
- constructor(props){
-     super(props)
-    this.state={
+  constructor(props) {
+    super(props)
+    this.state = {
     }
 
- } 
+  }
 
 
   render() {
     var card = null;
-    if(this.props.card !== null){
-     card = this.props.card
+    if (this.props.card !== null) {
+      card = this.props.card
     }
     console.log(this.props.card)
     return (
       <div className="Card">
-          <img className="card-image" src={`${card&&card.image_url}`} />
+        <img className="card-image" src={`${card && card.image_url}`} />
       </div>
     );
   }

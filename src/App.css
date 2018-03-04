@@ -24,9 +24,15 @@
 }
 
 .right{
-  height: 900px;
+  margin-top: 15px;
+  height: 870px;
   width: 156px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .row{
@@ -41,8 +47,7 @@
 }
 
 .row-select:hover{
-  border-style: solid;
-  border-color: rgb(214, 197, 181);
+  outline:2px solid rgb(214, 197, 181);
 }
 
 .enemy-siege{
@@ -81,4 +86,34 @@
   align-content: center;
   justify-content: center;
   align-items: center;
+}
+
+.ai-stack{
+  background-image: url("./red_back.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height:126px;
+  width: 90px;
+}
+
+.player-stack{
+  background-image: url("./blue_back.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height:126px;
+  width: 90px;
+}
+
+.player-stack:hover{
+  outline:2px solid rgb(214, 197, 181);
+}
+
+.ai-grave{
+  height:130px;
+  width: 90px;
+}
+
+.player-grave{
+  height:130px;
+  width: 90px;
 }

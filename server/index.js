@@ -14,8 +14,8 @@ const app = express();
 //app.use(express.static(`${__dirname}/../build`));
 
 massive(connectionString)
-  .then(db => app.set("db", db))
-  .catch(console.log);
+    .then(db => app.set("db", db))
+    .catch(console.log);
 
 app.use(json());
 app.use(cors());
@@ -30,5 +30,5 @@ app.get("/api/cards", controller.getAllCards)
 
 
 app.listen(port, () => {
-  console.log(`Listening on port: ${port}`);
+    console.log(`Listening on port: ${port}`);
 });
