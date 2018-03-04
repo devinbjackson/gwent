@@ -13,7 +13,6 @@ const app = express();
 
 //app.use(express.static(`${__dirname}/../build`));
 
-
 massive(connectionString)
   .then(db => app.set("db", db))
   .catch(console.log);

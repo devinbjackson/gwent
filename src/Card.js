@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import axios from "axios";
 import { connect } from 'react-redux';
 
+import './Card.css';
 
 class Card extends Component {
 
@@ -14,10 +14,14 @@ class Card extends Component {
 
 
   render() {
-      console.log(this.props)
+    var card = null;
+    if(this.props.card !== null){
+     card = this.props.card
+    }
+    console.log(this.props.card)
     return (
       <div className="Card">
-         {/* <img src={`${this.props.card.face}`} /> */}
+          <img className="card-image" src={`${card&&card.image_url}`} />
       </div>
     );
   }

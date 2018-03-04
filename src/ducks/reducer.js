@@ -23,8 +23,10 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
-      case GET_ALL_CARDS:
-        return Object.assign({}, state, {});
+      case GET_ALL_CARDS + "_PENDING":
+        return Object.assign({}, state);
+      case GET_ALL_CARDS + "_FULFILLED":
+        return Object.assign({}, state, {cardList: action.payload});
       default:
         return state;
     }
