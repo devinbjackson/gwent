@@ -1,5 +1,20 @@
 import axios from "axios";
 
+
+function shuffle() {
+    var array = [];
+    for (var i = 0; i < 10; i++) {
+      array.push(Math.floor(Math.random() * 20))
+    }
+    return array;
+  };
+
+function getFiltered(array, val){
+    array.splice(array.indexOf(val),1)
+    return array
+}  
+
+
 // Action Constants
 const GET_ALL_CARDS = "GET_ALL_CARDS";
 const TOGGLE_CHOOSING = "TOGGLE_CHOOSING";
@@ -96,6 +111,8 @@ export function hold(id) {
 
 const initialState = {
     cardList: [],
+    player_deck: shuffle(),
+    enemy_deck: shuffle(),
     isChoosing: false,
     isPlacing: false,
     isTargeting: false,
@@ -128,23 +145,41 @@ export default function reducer(state = initialState, action) {
         case HOLD:
             return Object.assign({}, state, { holding: action.payload });
         case ADD_ENEMY_MELEE:
-            return Object.assign({}, state, { enemyMelee: state.enemyMelee.concat(action.payload) , 
-                enemyTotal: state.playerTotal + state.cardList[action.payload].strength});
+            return Object.assign({}, state, {
+                enemyMelee: state.enemyMelee.concat(action.payload),
+                enemyTotal: state.enemyTotal + state.cardList[action.payload].strength,
+                enemy_deck: getFiltered(state.enemy_deck, action.payload)
+            });
         case ADD_ENEMY_RANGED:
-            return Object.assign({}, state, { enemyRanged: state.enemyRanged.concat(action.payload),
-                 enemyTotal: state.playerTotal + state.cardList[action.payload].strength });
+            return Object.assign({}, state, {
+                enemyRanged: state.enemyRanged.concat(action.payload),
+                enemyTotal: state.enemyTotal + state.cardList[action.payload].strength,
+                enemy_deck: getFiltered(state.enemy_deck, action.payload)
+            });
         case ADD_ENEMY_SIEGE:
-            return Object.assign({}, state, { enemySiege: state.enemySiege.concat(action.payload),
-                 enemyTotal: state.playerTotal + state.cardList[action.payload].strength });
+            return Object.assign({}, state, {
+                enemySiege: state.enemySiege.concat(action.payload),
+                enemyTotal: state.enemyTotal + state.cardList[action.payload].strength,
+                enemy_deck: getFiltered(state.enemy_deck, action.payload)
+            });
         case ADD_PLAYER_MELEE:
-            return Object.assign({}, state, { playerMelee: state.playerMelee.concat(action.payload), 
-                playerTotal: state.playerTotal + state.cardList[action.payload].strength });
+            return Object.assign({}, state, {
+                playerMelee: state.playerMelee.concat(action.payload),
+                playerTotal: state.playerTotal + state.cardList[action.payload].strength,
+                player_deck: getFiltered(state.player_deck, action.payload)
+            });
         case ADD_PLAYER_RANGED:
-            return Object.assign({}, state, { playerRanged: state.playerRanged.concat(action.payload), 
-                playerTotal: state.playerTotal + state.cardList[action.payload].strength});
+            return Object.assign({}, state, {
+                playerRanged: state.playerRanged.concat(action.payload),
+                playerTotal: state.playerTotal + state.cardList[action.payload].strength,
+                player_deck: getFiltered(state.player_deck, action.payload)
+            });
         case ADD_PLAYER_SIEGE:
-            return Object.assign({}, state, { playerSiege: state.playerSiege.concat(action.payload), 
-                playerTotal: state.playerTotal + state.cardList[action.payload].strength});
+            return Object.assign({}, state, {
+                playerSiege: state.playerSiege.concat(action.payload),
+                playerTotal: state.playerTotal + state.cardList[action.payload].strength,
+                player_deck: getFiltered(state.player_deck, action.payload)
+            });
         default:
             return state;
     }

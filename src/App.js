@@ -26,16 +26,7 @@ class App extends Component {
 
   componentWillMount() {
     this.props.getAllCards();
-    this.setState({ ai_deck: this.shuffle(), player_deck: this.shuffle() })
   }
-
-  shuffle() {
-    var array = [];
-    for (var i = 0; i < 10; i++) {
-      array.push(Math.floor(Math.random() * 12))
-    }
-    return array;
-  };
 
   displayCards(idArray) {
     const { cardList, playerMelee} = this.props;
@@ -89,13 +80,16 @@ class App extends Component {
       playerRanged,
       playerSiege,
       holding } = this.props
-    const player_deck = this.displayCards(this.state.player_deck);
+    const player_deck = this.displayCards(this.props.player_deck);
     return (
       <div className="App">
         <section className="left">
         <div className="enemy-total">
         {this.props.enemyTotal}
         </div>
+        <div className="next-button">
+          NEXT
+         </div> 
         <div className="player-total">
         {this.props.playerTotal}
         </div>

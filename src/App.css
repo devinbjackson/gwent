@@ -15,6 +15,11 @@
   height: 900px;
   width: 218px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .middle{
@@ -138,11 +143,35 @@
 .enemy-total{
   color: rgb(238, 212, 63);
   font-size: 4em;
-  margin-top: 220px;
+  margin-top: 8px
 }
 
 .player-total{
 color: rgb(238, 212, 63);
 font-size: 4em;
-margin-top: 320px;
+margin-top: 107px;
+}
+
+.next-button{
+  height: 100px;
+  width: 100px;
+  background-color: rgb(39, 59, 150);
+  border-radius: 500px;
+  margin-top: 107px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: blanchedalmond;
+  color: white;
+  font-size: 1.6em;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+}
+
+.next-button:hover{
+  cursor: pointer;
+  color: rgb(108, 206, 206);
+  border-color: rgb(108, 206, 206)
 }
