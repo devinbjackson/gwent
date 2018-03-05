@@ -64,7 +64,7 @@
 }
 
 .player-siege{
-  margin-top: 524px;
+  margin-top: 818px;
 }
 
 .player-ranged{
@@ -72,7 +72,7 @@
 }
 
 .player-melee{
-  margin-top: 818px;
+  margin-top: 524px;
 } 
 
 .top-board{
@@ -107,6 +107,7 @@
 
 .player-stack:hover{
   outline:2px solid rgb(214, 197, 181);
+  cursor: pointer;
 }
 
 .ai-grave{

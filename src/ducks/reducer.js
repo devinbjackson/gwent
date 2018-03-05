@@ -11,6 +11,7 @@ const ADD_ENEMY_SIEGE = "ADD_ENEMY_SIEGE";
 const ADD_PLAYER_MELEE = "ADD_PLAYER_MELEE";
 const ADD_PLAYER_RANGED = "ADD_PLAYER_RANGED";
 const ADD_PLAYER_SIEGE = "ADD_PLAYER_SIEGE";
+const HOLD = "HOLD";
 
 // Action Creators
 
@@ -45,42 +46,49 @@ export function toggleTargeting() {
 export function addPlayerMelee(id) {
     return {
         type: ADD_PLAYER_MELEE,
-        payload: null
+        payload: id
     };
 }
 
 export function addPlayerRanged(id) {
     return {
         type: ADD_PLAYER_RANGED,
-        payload: null
+        payload: id
     };
 }
 
 export function addPlayerSiege(id) {
     return {
         type: ADD_PLAYER_SIEGE,
-        payload: null
+        payload: id
     };
 }
 
 export function addEnemyMelee(id) {
     return {
         type: ADD_ENEMY_MELEE,
-        payload: null
+        payload: id
     };
 }
 
 export function addEnemyRanged(id) {
     return {
         type: ADD_ENEMY_RANGED,
-        payload: null
+        payload: id
     };
 }
 
 export function addEnemySiege(id) {
     return {
         type: ADD_ENEMY_SIEGE,
-        payload: null
+        payload: id
+    };
+}
+
+export function hold(id) {
+    return {
+        type: HOLD,
+        payload: (typeof id === "number") ? id : null
     };
 }
 
@@ -91,12 +99,13 @@ const initialState = {
     isChoosing: false,
     isPlacing: false,
     isTargeting: false,
-    enemyMelee:[],
-    enemyRanged:[],
-    enemySiege:[],
-    playerMelee:[],
-    playerRanged:[],
-    playerSiege:[],
+    holding: null,
+    enemyMelee: [],
+    enemyRanged: [],
+    enemySiege: [],
+    playerMelee: [],
+    playerRanged: [],
+    playerSiege: [],
 };
 
 
@@ -109,11 +118,25 @@ export default function reducer(state = initialState, action) {
         case GET_ALL_CARDS + "_FULFILLED":
             return Object.assign({}, state, { cardList: action.payload });
         case TOGGLE_CHOOSING:
-            return Object.assign({}, state, {isChoosing: !state.isChoosing});
+            return Object.assign({}, state, { isChoosing: !state.isChoosing });
         case TOGGLE_PLACING:
-            return Object.assign({}, state, {isPlacing: !state.isPlacing});
+            return Object.assign({}, state, { isPlacing: !state.isPlacing });
         case TOGGLE_TARGETING:
-            return Object.assign({}, state, {isTargeting: !state.isTargeting});
+            return Object.assign({}, state, { isTargeting: !state.isTargeting });
+        case HOLD:
+            return Object.assign({}, state, { holding: action.payload });
+        case ADD_ENEMY_MELEE:
+            return Object.assign({}, state, { enemyMelee: state.enemyMelee.concat(action.payload) });
+        case ADD_ENEMY_RANGED:
+            return Object.assign({}, state, { enemyRanged: state.enemyRanged.concat(action.payload) });
+        case ADD_ENEMY_SIEGE:
+            return Object.assign({}, state, { enemySiege: state.enemySiege.concat(action.payload) });
+        case ADD_PLAYER_MELEE:
+            return Object.assign({}, state, { playerMelee: state.playerMelee.concat(action.payload) });
+        case ADD_PLAYER_RANGED:
+            return Object.assign({}, state, { playerRanged: state.playerRanged.concat(action.payload) });
+        case ADD_PLAYER_SIEGE:
+            return Object.assign({}, state, { playerSiege: state.playerSiege.concat(action.payload) });
         default:
             return state;
     }
