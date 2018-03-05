@@ -93,6 +93,12 @@ class App extends Component {
     return (
       <div className="App">
         <section className="left">
+        <div className="enemy-total">
+        {this.props.enemyTotal}
+        </div>
+        <div className="player-total">
+        {this.props.playerTotal}
+        </div>
         </section>
         <section className="middle">
           <div className="top-board">

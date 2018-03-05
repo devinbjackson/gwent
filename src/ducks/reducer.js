@@ -106,6 +106,8 @@ const initialState = {
     playerMelee: [],
     playerRanged: [],
     playerSiege: [],
+    playerTotal: 0,
+    enemyTotal: 0,
 };
 
 
@@ -126,17 +128,23 @@ export default function reducer(state = initialState, action) {
         case HOLD:
             return Object.assign({}, state, { holding: action.payload });
         case ADD_ENEMY_MELEE:
-            return Object.assign({}, state, { enemyMelee: state.enemyMelee.concat(action.payload) });
+            return Object.assign({}, state, { enemyMelee: state.enemyMelee.concat(action.payload) , 
+                enemyTotal: state.playerTotal + state.cardList[action.payload].strength});
         case ADD_ENEMY_RANGED:
-            return Object.assign({}, state, { enemyRanged: state.enemyRanged.concat(action.payload) });
+            return Object.assign({}, state, { enemyRanged: state.enemyRanged.concat(action.payload),
+                 enemyTotal: state.playerTotal + state.cardList[action.payload].strength });
         case ADD_ENEMY_SIEGE:
-            return Object.assign({}, state, { enemySiege: state.enemySiege.concat(action.payload) });
+            return Object.assign({}, state, { enemySiege: state.enemySiege.concat(action.payload),
+                 enemyTotal: state.playerTotal + state.cardList[action.payload].strength });
         case ADD_PLAYER_MELEE:
-            return Object.assign({}, state, { playerMelee: state.playerMelee.concat(action.payload) });
+            return Object.assign({}, state, { playerMelee: state.playerMelee.concat(action.payload), 
+                playerTotal: state.playerTotal + state.cardList[action.payload].strength });
         case ADD_PLAYER_RANGED:
-            return Object.assign({}, state, { playerRanged: state.playerRanged.concat(action.payload) });
+            return Object.assign({}, state, { playerRanged: state.playerRanged.concat(action.payload), 
+                playerTotal: state.playerTotal + state.cardList[action.payload].strength});
         case ADD_PLAYER_SIEGE:
-            return Object.assign({}, state, { playerSiege: state.playerSiege.concat(action.payload) });
+            return Object.assign({}, state, { playerSiege: state.playerSiege.concat(action.payload), 
+                playerTotal: state.playerTotal + state.cardList[action.payload].strength});
         default:
             return state;
     }

@@ -134,3 +134,15 @@
   background-color: rgba(129, 129, 129, 0.418);
   position: absolute;
 }
+
+.enemy-total{
+  color: rgb(238, 212, 63);
+  font-size: 4em;
+  margin-top: 220px;
+}
+
+.player-total{
+color: rgb(238, 212, 63);
+font-size: 4em;
+margin-top: 320px;
+}
