@@ -9,6 +9,7 @@ class Card extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      offset: 0
     }
 
   }
@@ -19,7 +20,6 @@ class Card extends Component {
   }
 
   render() {
-    console.log(this.props.key)
     var card = null;
     if (this.props.card !== null) {
       card = this.props.card

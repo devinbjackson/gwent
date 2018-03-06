@@ -143,13 +143,19 @@
 .enemy-total{
   color: rgb(238, 212, 63);
   font-size: 4em;
-  margin-top: 8px
+  font-weight: bolder;
+  font-style: italic;
+  margin-top: 8px;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
 }
 
 .player-total{
 color: rgb(238, 212, 63);
 font-size: 4em;
+font-weight: bolder;
+font-style: italic;
 margin-top: 107px;
+text-shadow: 1px 1px 2px rgb(0, 0, 0);
 }
 
 .next-button{
@@ -168,10 +174,43 @@ margin-top: 107px;
   align-items: center;
   font-family: "Times New Roman", Times, serif;
   font-weight: bold;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
 }
 
 .next-button:hover{
   cursor: pointer;
   color: rgb(108, 206, 206);
   border-color: rgb(108, 206, 206)
+}
+
+.game-over{
+  color: white;
+  font-size: 5em;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bolder;
+  position:absolute;
+  width: 1200px;
+  height: 900px;
+  background-color: rgba(102, 61, 33, 0.651);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
+}
+
+.replay{
+  border-color: rgb(68, 68, 168);
+  border-radius: 500px;
+  padding: 12px;
+  color: white;
+  font-size: .3em;
+  background-color: rgb(47, 47, 153);
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
+
+}
+
+.replay:hover{
+  cursor: pointer;
 }
