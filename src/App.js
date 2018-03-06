@@ -135,6 +135,11 @@ class App extends Component {
     <div className="game-over">
     {playerTotal > enemyTotal? "YOU WIN!": "¯\\_(ツ)_/¯ Whatever, you still win."}
     <button onClick={this.handleReload} className="replay"> AGAIN </button>
+    <footer>
+    <p>Created by: Devin Jackson</p>
+    <p>Contact information: <a href="http://portfolio.devinbjackson.host">Portfolio</a></p>
+    <p>dev.jackson.dev@gmail.com</p>
+    </footer>
     </div>
     :null
     }
@@ -186,6 +191,10 @@ class App extends Component {
           </div>
           <div className="player-grave" />
         </section>
+        <div className="easter e-top"/>
+        <div className="easter e-bottom">
+          THANK YOU FOR VISITING
+        </div>
       </div>
     );
   }

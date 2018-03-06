@@ -9,6 +9,7 @@
   align-content: flex-start;
   align-items: flex-start;
   justify-content: flex-start;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .left{
@@ -125,6 +126,42 @@
   width: 90px;
 }
 
+
+.e-top{
+  left: 31px;
+  top: 60px;
+  background-image: url('./duane.gif');
+}
+
+.e-bottom{
+  left: 31px;
+  top: 60px;
+  background-image: url('./matchcom.gif');
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3em;
+  font-weight: bolder
+}
+
+.easter{ 
+  transition: 1s all ease;
+  opacity: 0;
+  position: absolute;
+  width: 92px;
+  height: 130px;
+  overflow: hidden;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 140%;
+}
+.easter:hover{
+  transition: 1s all ease;
+  opacity: 200;
+
+}
+
 .choosing{
   display: flex !important;
 
@@ -172,7 +209,6 @@ text-shadow: 1px 1px 2px rgb(0, 0, 0);
   justify-content: center;
   display: flex;
   align-items: center;
-  font-family: "Times New Roman", Times, serif;
   font-weight: bold;
   text-shadow: 1px 1px 2px rgb(0, 0, 0);
 }
@@ -186,7 +222,6 @@ text-shadow: 1px 1px 2px rgb(0, 0, 0);
 .game-over{
   color: white;
   font-size: 5em;
-  font-family: "Times New Roman", Times, serif;
   font-weight: bolder;
   position:absolute;
   width: 1200px;
@@ -213,4 +248,13 @@ text-shadow: 1px 1px 2px rgb(0, 0, 0);
 
 .replay:hover{
   cursor: pointer;
+}
+
+footer{
+  font-size: .2em;
+}
+
+footer a{
+  color: white;
+  text-decoration: none;
 }
