@@ -4,14 +4,14 @@ const cors = require("cors");
 const massive = require("massive");
 const controller = require("./controller/controller")
 
-const port = 3001;
+require("dotenv").config();
 
 const { connectionString } = require("./config").massive;
 
 const app = express();
+const port= process.env.PORT || "3030";
 
-
-//app.use(express.static(`${__dirname}/../build`));
+app.use(express.static(`${__dirname}/../build`));
 
 massive(connectionString)
     .then(db => app.set("db", db))
@@ -21,14 +21,14 @@ app.use(json());
 app.use(cors());
 
 
-// const path = require('path')
-// app.get('*', (req, res)=>{
-//   res.sendFile(path.join(__dirname, '/../build/index.html'));
-// })
+
 
 app.get("/api/cards", controller.getAllCards)
 
-
+const path = require('path')
+app.get('*', (req, res)=>{
+  res.sendFile(path.join(__dirname, '/../build/index.html'));
+})
 app.listen(port, () => {
     console.log(`Listening on port: ${port}`);
 });
